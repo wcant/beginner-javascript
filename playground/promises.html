@@ -10,6 +10,58 @@
 
 <body>
   <script>
+    function makePizza(toppings = []) {
+      return new Promise(function (resolve, reject) {
+        const amountOfTimeToBake = 500 + (toppings.length * 200);
+        //wait 1 sec for pizza to cook
+        setTimeout(function () {
+          //when you are ready you can resolve this promise
+          resolve(`here is your pizza with the toppings ${toppings.join(' ')}`);
+          //if something went wrong, then we can reject
+        }, amountOfTimeToBake);
+
+      });
+    }
+
+    const pepperoniPromise = makePizza(['pepperoni']);
+    const canadianPromise = makePizza(['pepperoni', 'mushroom', 'onions']);
+
+    // simply logging the pizzas here does not actually return the resolved value
+    //console.log(pepperoniPizza, canadianPizza);
+
+    //using then lets you return the resolved value
+    /*pepperoniPromise.then(function (pizza) {
+      console.log('Ahh got it!');
+      console.log(pizza);
+    })*/
+
+    makePizza(['pepperoni'])
+      .then(function (pizza) {
+        console.log(pizza);
+        return makePizza(['ham', 'cheese']);
+      })
+      .then(function (pizza) {
+        console.log(pizza);
+        return makePizza(['hot peppers', 'onion', 'feta']);
+      })
+      .then(function (pizza) {
+        console.log(pizza);
+        return makePizza();
+      })
+      .then(function (pizza) {
+        console.log(pizza);
+        return makePizza(['one', 'two', 'one', 'two', 'one', 'two', 'one', 'two', 'one', 'two'])
+      }).then(pizza => {
+        console.log(`All done! here's your last pizza`);
+        console.log(pizza);
+      });
+
+    console.log('right after');
+
+    //run them concurrently
+    const pizzaPromise1 = makePizza(['hot peppers', 'onion', 'feta']);
+    const pizzaPromise2 = makePizza(['one', 'two', 'one', 'two', 'one', 'two', 'one', 'two', 'one', 'two']);
+    const pizzaPromise3 = makePizza(['ham', 'cheese']);
 
   </script>
 </body>
