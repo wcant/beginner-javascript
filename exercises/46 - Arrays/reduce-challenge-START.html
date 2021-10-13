@@ -9,12 +9,282 @@
 </head>
 
 <body>
+
+    The Smart Coder
+    10 Awesome Github Repos Every Web Developer Should Know
+    
+    PROGRAMMING
+    10 Awesome Github Repos Every Web Developer Should Know
+    From giant repos of resources to interview prep, there’s a lot of great stuff here
+    
+    Team
+    Team
+    Read more posts by this author.
+    
+    Team
+    TEAM
+    4 APRIL, 2021 • 4 MIN READ
+    10 Awesome Github Repos Every Web Developer Should Know
+    TABLE OF CONTENTS
+    1. Awesome
+    2. List of (Advanced) JavaScript Questions
+    3. JavaScript Algorithms and Data Structures
+    4. Clean Code JavaScript
+    5. free-for.dev
+    6. Tech Interview Handbook
+    7. Effective Engineer — Notes
+    8. List of Free Learning Resources
+    9. Big List of Naughty Strings
+    10. Awesome First PR Opportunities
+    I have collected ten great repositories you can find on GitHub that will definitely give you an instant knowledge boost.
+    
+    1. Awesome
+    Awesome is, without a doubt, the most popular repo that curates all topics from software development to hardware to business. It has more than 123,000 stars on Github at this moment, and one could spend days (nights) browsing it. It is my one-stop-shop if I want to learn something new.
+    
+    
+    
+    
+    Link to Repo
+    
+    2. List of (Advanced) JavaScript Questions
+    This repository (13,000 stars) created by Lydia Hallie (great person, by the way, check her out on Instagram!) is awesome if you want to test your JavaScript knowledge and/or prepare for a job interview. Lydia constantly adds new questions, so this repo is growing steadily!
+    
+    
+    
+    
+    Link to Repo
+    
+    3. JavaScript Algorithms and Data Structures
+    JavaScript Algorithms (59,500 stars) contains a tremendous amount of JavaScript-based examples of popular and less popular algorithms and data structures. The structure is really nice because the examples are labeled either beginner or advanced. So whether you are interested in cryptography, sorting, graphs or even machine learning (and much more), there will be something for you.
+    
+    
+    
+    
+    Link to Repo
+    
+    4. Clean Code JavaScript
+    Knowing how to write clean code is a useful skill for almost every developer and mandatory in many projects and corporations. This repository (28,400 Stars) takes the concepts of Clean Code by Robert C. Martin and adapts them for JavaScript so you can use them in future work.
+    
+    
+    
+    
+    Link to Repo
+    
+    5. free-for.dev
+    This great repository (30,000 stars) was created to helping developers find software (SaaS, PaaS, IaaS) and similar offerings that have free tiers. Using great software for free? Sounds awesome! There are services for email, CI/CD, monitoring, DNS, hosting, and many, many more.
+    
+    
+    
+    
+    Link to Repo
+    
+    6. Tech Interview Handbook
+    If you want to prepare yourself for a job interview in tech (and you should!), this repository is just the right place for you. It currently has 38,000 stars on Github and helps you with:
+    
+    How to prepare for coding interviews
+    Interview cheatsheet
+    Algorithm tips/best practice questions
+    Interview formats
+    …and more
+    Check it out before heading to the next interview.
+    
+    
+    
+    Link to Repo
+    
+    7. Effective Engineer — Notes
+    An “Effective Engineer” is someone who gets things done. But how can you become one? This Github repository (3,700 stars) has advice for you! Topics include:
+    
+    How to optimize your learning
+    How to prioritize
+    Measuring your improvement
+    
+    
+    
+    Link to Repo
+    
+    8. List of Free Learning Resources
+    This repository has a whopping 135,000 stars on Github and definitely is one of the most-loved curations there. It offers lots and lots of freely available programming books, screencasts, podcasts, and even online courses of all sorts. If you are looking for learning materials — look no further!
+    
+    
+    
+    
+    Link to Repo
+    
+    9. Big List of Naughty Strings
+    You can invest as much as you want into testing your code and programs, but when real users come into play — believe me, they will do things you would have never thought of, especially when it comes to user input. This repository (34,100 stars) has a huge list of Strings that are known to be problematic when entered as input by the user. So whether you want to impress your QA friends or uses this for testing your software, this could be quite useful!
+    
+    
+    
+    
+    Link to Repo
+    
+    10. Awesome First PR Opportunities
+    The last repository I want to recommend to you is great if you want to get started with Open Source. Contributing to OSS is a great way to get involved with the community, add something to your portfolio, try out new things, become a better developer, and even find a new job. But getting started is quite hard, as I know from personal experience. This repository lists Open Source projects that are known for or currently have beginner-friendly issues that you can tackle. It helped me getting started with OSS, should help you as well!
+    
+    
+    
+    Link to Repo
+    
+    I hope you find these repositories as awesome as I do, and I really hope that some of them will help you on your journey as a web developer.
+    
+    If you like what I write and want to support me and my work, please follow me on Twitter to learn more about programming, making, writing & careers🥰
+    
+    
+    
+    
+    
+    
+    
+    MORE IN PROGRAMMING
+    Tips to build an awesome portfolio
+    11 April, 2021 – 2 min read
+    
+    How To Become a Better Software Engineer in 2021
+    11 April, 2021 – 6 min read
+    
+    20 Must-Have Skills for Software Developers in 2021
+    11 April, 2021 – 6 min read
+    
+    See all 19 posts →
+    GITHUB
+    10 Extraordinary GitHub Repos for All Developers
+    Interview resources, build your own X, a list of great public APIs, and more
+    
+    Team
+    TEAM
+    4 APR 2021 • 4 MIN READ
+    CAREER
+    How to Become a Successful Freelance Engineer
+    An entire alternate career path awaits those willing to take the risk
+    
+    Team
+    TEAM
+    4 APR 2021 • 6 MIN READ
+    The Smart Coder © 2021
+    Latest Posts
+    
+    x
+    x
+ 
+
   <script>
     // Grab all the text from a web page
     // Count how many times each letter and number occurs
+    const alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n',
+                      'o','p','q','r','s','t','u','v','w','x','y','z'];
+    const nums = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+
+    const alphaCount = new Array(26).fill(0);
+    const numCount = new Array(10).fill(0);
+
+
+
+    // First filter out all characters not /[a-z0-9]/i
+    const text = document.querySelector('body').innerText;
+
+    console.time();
+    const chars = text.split('');
+    function isValidChar(char) {
+      return char.match(/[a-z0-9]/i);
+    }
+    const cleanText = chars
+      .filter(isValidChar)
+      .map(char => char.toLowerCase());
+    console.timeEnd();
+
+    // Method 1
+    // console.time();
+    // alphabet.forEach( (letter, index) => {
+    //   const count = cleanText.reduce( (acc, char) => {
+    //     char === letter ? acc++ : null;
+    //     return acc;
+    //   }, 0);
+    //   alphaCount[index] = count;
+    // });
+
+    // nums.forEach( (num, index) => {
+    //   const count = cleanText.reduce( (acc, char) => {
+    //     char === num ? acc++ : null;
+    //     return acc;
+    //   }, 0);
+    //   numCount[index] = count;
+    // });
+
+    // console.timeEnd();
+    // console.log(alphaCount);
+    // console.log(numCount);
+    
+    // Method 2
+    // const alphaCount2 = new Array(26).fill(0);
+    // const numCount2 = new Array(10).fill(0);
+
+    // console.time()
+    // cleanText.forEach( char => {
+    //   if (char.match(/[0-9]/)) {
+    //     numCount2[nums.indexOf(char)]+=1;
+    //   } else {
+    //     alphaCount2[alphabet.indexOf(char)]+=1;
+    //   }
+    // });
+    // console.timeEnd();
+    // console.log(alphaCount2);
+    // console.log(numCount2);
+
+    // Method 3
+    console.time();
+
+    function instanceCounter(counts, char) {
+      counts[char] ? counts[char]+=1 : counts[char] = 1;
+      return counts;
+    }
+    const countContainer = cleanText.reduce(instanceCounter, {});
+
+    console.timeEnd();
+    console.log(countContainer);
+
+    // Now sort by highest count (spread into an array of arrays since objects dont maintain order)
+    const sortedCounts = [...Object.entries(countContainer)].sort( (a,b) => b[1]-a[1] );
+
+    console.log(sortedCounts);
+
+    // Return most frequent letter and number
+    const keys = Object.keys(countContainer);
+    const values = Object.values(countContainer);
+
+    // First, I'm going to separate the countContainer Object in to 
+    // one containing the letters and another containing the numbers
+    const lettersFound = keys.filter( key => key.match(/[a-z]/));
+    const lettersContainer = {};
+    for (let key of lettersFound) {
+      lettersContainer[key] = countContainer[key];
+    }
+
+    const numbersFound = keys.filter( key => key.match(/[0-9]/));
+    const numbersContainer = {};
+    for (let key of numbersFound) {
+      numbersContainer[key] = countContainer[key];
+    }
+    
+    // It's possible there's equal counts for different letters, so going to account for that here
+    // Get letter(s) with highest count
+    
+    const highestLetterCount = Math.max(...Object.values(lettersContainer));
+    const highestLetterIndex = Object.values(lettersContainer).indexOf(highestLetterCount);
+    const mostFrequentLetter = Object.keys(lettersContainer)[highestLetterIndex];
+    // Most frequent letter
+    console.log(mostFrequentLetter);
+
+    const highestNumberCount = Math.max(...Object.values(numbersContainer));
+    const highestNumberIndex = Object.values(numbersContainer).indexOf(highestNumberCount);
+    const mostFrequentNumber = Object.keys(numbersContainer)[highestNumberIndex];
+    // Most frequent number
+    console.log(mostFrequentNumber);
+
 
 
   </script>
 </body>
 
 </html>
+ 
