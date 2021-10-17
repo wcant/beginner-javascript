@@ -10,6 +10,72 @@
 
 <body>
 
+  <button class="one">Button 1</button>
+  <button class="two">Button 2</button>
+  <script>
+
+    // new keyword
+    const myDate = new Date('August 11, 2025');
+    console.log(myDate)
+    
+
+    const names = new Array('wes', 'nic');
+    // an array is not a type, it's a special kind of object
+    /* > typeof names
+       < object
+
+       > names instanceof Array
+       < true
+    */
+
+    const wes = new Object({ name: 'wes' });
+    /* > typeof wes
+       < object
+    */
+
+    const span = document.createElement('span');
+    /* > span instanceof Element
+       < true
+    */
+    /* So why not use 'new' keyword in front of document.createElement?
+        It's already done under the hood.
+    */
+
+    function Pizza(toppings = [], customer){
+      console.log('Making a pizza');
+      // save the toppings that were passed in to this instance of pizza
+      this.toppings = toppings;
+      this.customer = customer;
+      this.id = Math.floor(Math.random() * 16777215).toString(16);
+    }
+
+    const pepperoniPizza = new Pizza(['pepperoni'], 'Wes');
+    const canadianPizza = new Pizza(['pepperoni', 'mushrooms', 'onion'], 'Nic');
+    //console.log(pepperoniPizza);
+
+    //console.log(pepperoniPizza.constructor);
+    // tells you what function made pepperoniPizza
+
+
+    const button1 = document.querySelector('.one');
+    const button2 = document.querySelector('.two');
+
+    // using an arrow function here will make this not scope to the button, but rather the window
+    function tellMeAboutTheButton() {
+      //this here is scoped to the button
+      console.log('outside', this);
+      setTimeout(() => {
+        //this here is scoped to window, unless you use arrow function
+        console.log('inside', this);
+        this.textContent = 'You Clicked Me';
+      }, 1000);
+    }
+    // the this keyword is equal to what's left of the .
+    // this is equal to whatever it is bound to
+    button1.addEventListener('click', tellMeAboutTheButton);
+    button2.addEventListener('click', tellMeAboutTheButton);
+
+  </script>
 </body>
 
 </html>
