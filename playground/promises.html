@@ -10,7 +10,48 @@
 
 <body>
   <script>
+    function makePizza(toppings = []) {
+      const pizzaPromise = new Promise(function(resolve, reject) {
+        const amountOfTimeToBake = 500 + (toppings.length * 200);
+        // wait 1 sec for the pizza to cook
+        setTimeout(function() {
+          resolve(`Here is your pizza with the toppings ${toppings.join(' ')}`);
+        }, amountOfTimeToBake);
+        // when you are ready you can resolve this promise
+        // if something went wrong you can reject
 
+      });
+      return pizzaPromise;
+    }
+
+    // const pepperoniPromise = makePizza(['pepperoni']);
+    // const canadianPromise = makePizza(['pepperoni', 'mushrooms', 'onions']);
+    
+    // console.log(pepperoniPromise, canadianPromise);
+
+    // pepperoniPromise.then(function(pizza) {
+    //   console.log('got it');
+    //   console.log(pizza);
+    // });
+
+    console.log('first');
+    makePizza(['pepperoni'])
+      .then(function(pizza) {
+        console.log(pizza);
+        return makePizza(['ham', 'cheese']);
+      })
+      .then(function(pizza) {
+        console.log(pizza);
+        return makePizza(['hot peppers', 'onion', 'feta']);
+      })
+      .then(function(pizza) {
+        console.log(pizza);
+        return makePizza(['hot peppers', 'onion', 'feta', 'onion', 'feta', 'onion', 'feta', 'onion', 'feta', 'onion', 'feta', 'onion', 'feta', 'onion', 'feta']);
+      })
+      .then(function(pizza) {
+        console.log(pizza);
+      });
+    console.log('after');
   </script>
 </body>
 

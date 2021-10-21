@@ -7,7 +7,6 @@
   <title>Event Loop</title>
   <link rel="stylesheet" href="../base.css">
   <style>
-
     .go {
       margin: 5rem;
       background: white;
@@ -17,81 +16,109 @@
       transition: all 0.2s;
     }
 
-    .square {
-      background: lightblue;
-    }
-    .circle {
-      background: lightblue;
+    .go.circle {
       border-radius: 50%;
     }
 
-    .red {
-      background-color: red;
+    .go.red {
+      background: red;
     }
 
-    .purple {
-      background-color: purple;
+    .go.purple {
+      background: purple;
+      color: white;
     }
 
-    .fadeOut {
+    .go.fadeOut {
       opacity: 0;
     }
   </style>
 </head>
 
 <body>
-  <div class="go">
-    Click Me
-  </div>
-
+  <div class="go">Click Me</div>
   <script>
-    // console.log('starting');
-    // setTimeout(function() {
-    //   console.log('running');
-    // }, 2000);
-    // console.log('ending');
 
+    function wait(ms = 0) {
+      return new Promise(function(resolve){
+        setTimeout(resolve, ms);
+      });
+    }
+
+    // wait(200).then(() => {
+    //   console.log('done');
+    // })
 
     const go = document.querySelector('.go');
 
-    go.addEventListener('click', function(e) {
+
+    // Redo using Async/await
+    
+    async function animate(e) {
       const el = e.currentTarget;
-      // 1. change the text to GO when clicked
-      el.textContent = 'GO!';
+      // 1. Change the text to GO when clicked.
+      el.textContent = 'GO';
+      await wait(2000)
 
-      // 2. make it a circle after 2 seconds
-      setTimeout(function() {
-        el.classList.add('circle');
+      // 2. Make it a circle after 2 seconds
+      el.classList.add('circle');
+      await wait(500);
 
-        // 3. make it red after 0.5s
-        setTimeout( () => {
-          go.classList.add('red');
-          // 4. make it a square after 0.25s
-          setTimeout( () => {
-            go.classList.remove('circle');
-            go.classList.add('square');
-            // 5. make it purple after 0.3s
-            setTimeout( () => {
-              el.classList.remove('red');
-              el.classList.remove('purple');
-              // 6. fade out after 0.5s
-              setTimeout( () => {
-                el.classList.add('fadeOut');
-              }, 500);
-            }, 300);
-          }, 250);
-        }, 500);
-      }, 2000);
+      // 3. Make it red after 0.5s
+      el.classList.add('red');
+      await wait(250);
+
+      // 4. make it square after 0.25s
+      el.classList.remove('circle');
+      await wait(500);
+
+      // 5. make it purple
+      el.classList.remove('red');
+      el.classList.add('purple');
+      await wait(500);
+      // 6. fade out after 0.5s
+      el.classList.add('fadeOut');
+
+    }
 
 
 
-    });
-
-  
 
 
+    go.addEventListener('click', animate);
 
-  </script>
+
+    // function go(e) {
+    //   const el = e.currentTarget;
+    //   // 1. Change the text to GO when clicked.
+    //   el.textContent = 'GO';
+    //   setTimeout(function () {
+    //     // 2. Make it a circle after 2 seconds
+    //     el.classList.add('circle');
+    //     setTimeout(function () {
+    //       // 3. Make it red after 0.5s
+    //       el.classList.add('red');
+    //       setTimeout(function () {
+    //         // 4. make it square after 0.25s
+    //         el.classList.remove('circle');
+    //         setTimeout(function () {
+    //           // 5. make it purple
+    //           el.classList.remove('red');
+    //           el.classList.add('purple');
+    //           setTimeout(function () {
+    //             // 6. fade out after 0.5s
+    //             el.classList.add('invisible');
+    //             setTimeout(function () {
+    //               console.log('You have reacted the 7th layer of callback hell');
+    //               el.classList.remove('invisible', 'purple');
+    //             }, 500);
+    //           }, 500);
+    //         }, 500);
+    //       }, 500)
+    //     }, 500)
+    //   }, 500)
+    // }
+</script>
 </body>
 
 </html>

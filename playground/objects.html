@@ -9,8 +9,32 @@
 </head>
 
 <body>
-  <script>
 
+  <input type="text" name="first" value="wes">
+
+  <script>
+    const age = 100;
+    const person = {
+      age,
+      name: 'wes',
+      '7778': true,
+      clothing: {
+        shirts: 10,
+        pants: 2,
+      },
+    };
+
+    function whichProp() {
+      return 'age';
+    }
+
+    console.log(person[whichProp()]);
+
+    const nameInput = document.querySelector('[name="first"]');
+    const name = nameInput.value;
+    console.log(name);
+
+    //console.log(person);
   </script>
 </body>
 

@@ -9,7 +9,36 @@
 </head>
 
 <body>
+  <p class='user'></p>
+
   <script>
+    const baseEndpoint = 'https://api.github.com';
+    const usersEndpoint = `${baseEndpoint}/users`;
+    const userEl = document.querySelector('.user');
+    
+    function handleError(err) {
+      console.log(err);
+      userEl.textContent = `somethign went wrong: ${err}`;
+    }
+    // Method 2 - using async/await
+    
+    async function displayUser(username) {
+      const response = await fetch(`${usersEndpoint}/${username}`);
+      const data = await response.json();
+      //console.log(data);
+      userEl.textContent = `${data.name} - ${data.location}`;
+      
+    }
+    displayUser('wcant').catch(handleError);
+    
+    // Method 1
+    
+    // const wesPromise = fetch(endpoint);
+    // wesPromise.then( response => {
+    //   return response.json();
+    // }).then( data => {
+    //   userEl.textContent = `${data.name}`;
+    // }).catch(handleError);
 
   </script>
 </body>

@@ -11,6 +11,28 @@
 </head>
 
 <body>
+  <script>
+    const names = ['wes', 'nic', 'leo']; //array literal
+
+    // // mutation method  - they DO change the original data
+    // const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    // const numbersBackwards = numbers.reverse();
+    // console.log(numbers);
+    // // anytime you want to use a mutation method and not mutate the original array
+    // // we need to take a copy of the array
+    // const numbersReversed = [...numbers].reverse();
+    // console.log(numbersReversed);
+    // // some methods modify the original array and some will create a new one
+
+    // //immutable - they do NOT change the original data
+    // const pizzaSlice = numbers.slice(2, 4);
+    // console.log(pizzaSlice);
+    // console.log(numbers);
+
+    names.push('lux');  // mutable
+    const names2 = [...names, 'lux'];
+
+  </script>
 
 </body>
 

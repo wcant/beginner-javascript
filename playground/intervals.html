@@ -9,7 +9,27 @@
 </head>
 
 <body>
+  <script>
+    function buzzer() {
+      console.log('buzzzzz');
+    }
 
+    setTimeout(function() {
+      console.log('done');
+    }, 500);
+
+
+    setInterval(buzzer, 2000);
+
+    function setImmediateInterval(funcToRun, ms) {
+      // Right away call that function
+      funcToRun();
+      // run a regular interval
+      return setInterval(funcToRun, ms);
+    }
+
+    setImmediateInterval(buzzer, 2000);
+  </script>
 </body>
 
 </html>
