@@ -9,7 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "parcel-bundler": "^1.12.4"
+    "cors-anywhere": "^0.4.4",
+    "parcel-bundler": "^1.9.4"
   },
   "browserslist": [
     "last 1 chrome versions"
